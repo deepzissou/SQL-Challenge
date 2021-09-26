@@ -1,17 +1,22 @@
 --1. List the following details of each employee: employee number, last name, first name, sex, and salary.
-
+--==================================================================================================================
+-- Select the columns from employees and add join the salary using emp_no
 SELECT employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
 FROM employees
 JOIN salaries
 ON employees.emp_no = salaries.emp_no;
 
 --2. List first name, last name, and hire date for employees who were hired in 1986.
-
+--=======================================================================================
+--Pull first name, last name and hire date from employees specify where and use the BETWEEN & AND function.
 SELECT first_name, last_name, hire_date 
 FROM employees
 WHERE hire_date BETWEEN '1986-01-01' AND '1987-01-01';
 
 --3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+--==================================================================================================================================================================
+--Select the deptartment info and join dept_manager (emp_no) and join employees stating that emp_no for both dept_manager and 
+--employees are the same.
 SELECT departments.dept_no, departments.dept_name, dept_manager.emp_no, employees.last_name, employees.first_name
 FROM departments
 JOIN dept_manager
@@ -20,6 +25,8 @@ JOIN employees
 ON dept_manager.emp_no = employees.emp_no;
 
 --4. List the department of each employee with the following information: employee number, last name, first name, and department name.
+--=====================================================================================================================================
+
 SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
 FROM dept_emp
 JOIN employees
